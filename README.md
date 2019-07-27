@@ -26,3 +26,5 @@ http://mint-ui.github.io/docs/#/
 http://element-ui.cn/#/zh-CN/component/installation
 
 new_branch ---- desktop
+
+add --- book
