@@ -118,3 +118,18 @@ plugins: [
 ```js
 
 ```
+
+# webpack4
+
+#### 介绍
+慕课网webpack4学习笔记
+
+#### webpack的安装
+
+1. node 版本尽可能高
+2. 创建项目文件夹
+3. npm init / npm init -y ---> package.json
+4. package.json 添加 private: true，将项目设为私有项目，同时删除main
+5. 在项目文件夹中安装webpack: npm install webpack webpack-cli --savd-dev
+6. npx webpack -v 验证是否正确安装
+7. 创建.gitignore文件 添加一行/node_modules/让git忽略该文件夹

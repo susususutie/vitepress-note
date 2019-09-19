@@ -1,16 +1,20 @@
- **Hexo** 
+##Hexo
 
-安装：
+全局安装 
+cnpm install -g hexo-cli
 
-`npm install -g hexo-cli`
+hexo init <folder>
+cd <folder>
+cnpm install
 
-初始化：
-
-
+```cmd
+.
+├── node_modules
+├── scaffolds    模板
+├── source       用户资源
+|   └── _posts
+├── themes       主题
+├── _config.yml  网站配置参数
+├── package-lock.json
+└── package.json
 ```
-hexo init myhexo
-cd myhexo
-npm install
-```
-
-项目结构：
