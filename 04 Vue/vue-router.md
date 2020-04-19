@@ -1,15 +1,13 @@
 # vue-router
 
-
 ## install 安装
 
-```js
+```javascript
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 ```
-
 
 ## 起步
 
@@ -24,18 +22,17 @@ Vue.use(VueRouter)
 
 定义路由
 
-```js
+```javascript
 const routes = [
   { path: '/foo', component: Foo }
 ]
 ```
 
-在任何组件内通过 this.$router 访问路由器，也可以通过 this.$route 访问当前组件的路由
-
+在任何组件内通过 this.$$router 访问路由器，也可以通过 this.$$route 访问当前组件的路由
 
 ## 动态路由匹配
 
-```js
+```javascript
 // 冒号后即为动态参数，该参数会被传递给相应组件
 // 在组件中通过 this.$route.params 访问参数
 const routes = [
@@ -45,12 +42,6 @@ const routes = [
 
 ## 
 
-```
-
-```
 
 ## 
 
-```
-
-```

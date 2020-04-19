@@ -1,0 +1,9 @@
+{
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.exclude": {
+
+  },
+  "markdown-preview-enhanced.enableCriticMarkupSyntax": true
+}
