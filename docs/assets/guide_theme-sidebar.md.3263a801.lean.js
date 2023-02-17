@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,a as l}from"./app.c4736526.js";const A=JSON.parse('{"title":"Sidebar","description":"","frontmatter":{},"headers":[],"relativePath":"guide/theme-sidebar.md","lastUpdated":null}'),p={name:"guide/theme-sidebar.md"},o=l("",21),e=[o];function t(c,D,r,y,F,C){return n(),a("div",null,e)}const d=s(p,[["render",t]]);export{A as __pageData,d as default};

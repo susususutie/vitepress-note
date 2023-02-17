@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,a as l}from"./app.c4736526.js";const A=JSON.parse('{"title":"Theme Configs","description":"","frontmatter":{},"headers":[],"relativePath":"config/theme-configs.md","lastUpdated":null}'),p={name:"config/theme-configs.md"},o=l("",83),e=[o];function t(c,r,D,y,i,F){return a(),n("div",null,e)}const d=s(p,[["render",t]]);export{A as __pageData,d as default};
