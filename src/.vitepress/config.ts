@@ -34,11 +34,14 @@ export default defineConfig({
     ],
 
     sidebar: {
-      "/WSL/": [
+      "/wsl/": [
         {
           text: "Introduction",
           collapsed: false,
-          items: [{ text: "WSL setup", link: "/wsl/setup" }],
+          items: [
+            { text: "WSL setup", link: "/wsl/setup" },
+            { text: "使用 WSL", link: "/wsl/wsl-in-fed" },
+          ],
         },
       ],
       // "/guide/": sidebarGuide(),
