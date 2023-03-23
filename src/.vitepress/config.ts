@@ -26,6 +26,7 @@ export default defineConfig({
       { text: "前端",     activeMatch: "/fed/",      link: "/fed/nvm" },
       { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/setup" },
       { text: "Rust",     activeMatch: "/rust/",     link: "/rust/setup-for-fed-coder" },
+      { text: "GitHub",   activeMatch: "/github/",   link: "/github/demo" },
     ],
     // prettier-ignore
     sidebar: {
@@ -38,6 +39,9 @@ export default defineConfig({
       ],
       "/rust/": [
         { text: "写给前端开发者的 Rust 入门教程", link: "/rust/setup-for-fed-coder" },
+      ],
+      "/github/": [
+        { text: "(待整理)",                       link: "/github/demo" },
       ],
     },
 
