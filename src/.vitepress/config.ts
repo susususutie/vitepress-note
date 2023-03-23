@@ -1,45 +1,82 @@
-import { defineConfig } from 'vitepress'
-import { version } from '../../package.json'
+import { defineConfig } from "vitepress";
+// import { version } from "../../package.json";
 
 export default defineConfig({
-  base: '/vitepress-note/',
-  outDir: '../docs',
+  base: "/vitepress-note/",
+  outDir: "../docs",
 
-  lang: 'zh--CN',
-  title: 'VitePress',
-  description: 'Vite & Vue powered static site generator.',
+  lang: "zh-CN",
+  title: "VitePress-Note",
+  description: "VitePress 驱动的个人笔记.",
 
   lastUpdated: true,
   cleanUrls: true,
 
-  head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
+  head: [["meta", { name: "theme-color", content: "#3c8772" }]],
 
   markdown: {
     headers: {
-      level: [0, 0]
-    }
+      level: [0, 0],
+    },
   },
 
   themeConfig: {
-    nav: nav(),
+    // prettier-ignore
+    nav:  [
+      { text: "前端",      activeMatch: "/fed/",      link: "/fed/nvm" },
+      { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/setup" },
+      { text: "Rust",      activeMatch: "/rust/",      link: "/rust/setup-for-fed-coder" },
+
+      // { text: "Guide",    activeMatch: "/guide/",    link: "/guide/what-is-vitepress" },
+      // { text: "Configs",  activeMatch: "/config/",   link: "/config/introduction" },
+    ],
+
+    socialLinks: [
+      { icon: "github", link: "https://github.com/susususutie/vitepress-note" },
+    ],
 
     sidebar: {
-      '/guide/': sidebarGuide(),
-      '/config/': sidebarConfig()
+      "/fed/": [
+        {
+          text: "工具",
+          collapsed: false,
+          items: [
+            { text: "nvm", link: "/fed/nvm" },
+          ],
+        },
+      ],
+      "/wsl/": [
+        {
+          text: "入门教程",
+          collapsed: false,
+          items: [
+            { text: "WSL setup", link: "/wsl/setup" },
+            { text: "使用 WSL", link: "/wsl/wsl-in-fed" },
+          ],
+        },
+      ],
+      "/rust/": [
+        {
+          text: "入门教程",
+          collapsed: false,
+          items: [
+            { text: "写给前端开发者的 Rust 入门教程", link: "/rust/setup-for-fed-coder" },
+          ],
+        },
+      ],
+      // "/guide/": sidebarGuide(),
+      // "/config/": sidebarConfig(),
     },
 
     editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
-      text: 'Edit this page on GitHub'
+      pattern:
+        "https://github.com/susususutie/vitepress-note/edit/develop/src/:path",
+      text: "在 GitHub 上编辑(develop分支)",
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ],
-
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2019-present Evan You'
+      message: "蛤? 👓",
+      copyright: "Copyright © 2023 sutie",
     },
 
     // algolia: {
@@ -52,100 +89,80 @@ export default defineConfig({
     //   code: 'CEBDT27Y',
     //   placement: 'vuejsorg'
     // }
-  }
-})
-
-function nav() {
-  return [
-    { text: 'Guide', link: '/guide/what-is-vitepress', activeMatch: '/guide/' },
-    { text: 'Configs', link: '/config/introduction', activeMatch: '/config/' },
-    {
-      text: version,
-      items: [
-        {
-          text: 'Changelog',
-          link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
-        },
-        {
-          text: 'Contributing',
-          link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
-        }
-      ]
-    }
-  ]
-}
+  },
+});
 
 function sidebarGuide() {
   return [
     {
-      text: 'Introduction',
+      text: "Introduction",
       collapsed: false,
       items: [
-        { text: 'What is VitePress?', link: '/guide/what-is-vitepress' },
-        { text: 'Getting Started', link: '/guide/getting-started' },
-        { text: 'Configuration', link: '/guide/configuration' },
-        { text: 'Routing', link: '/guide/routing' },
-        { text: 'Deploying', link: '/guide/deploying' },
-        { text: 'Internationalization', link: '/guide/i18n' }
-      ]
+        { text: "What is VitePress?", link: "/guide/what-is-vitepress" },
+        { text: "Getting Started", link: "/guide/getting-started" },
+        { text: "Configuration", link: "/guide/configuration" },
+        { text: "Routing", link: "/guide/routing" },
+        { text: "Deploying", link: "/guide/deploying" },
+        { text: "Internationalization", link: "/guide/i18n" },
+      ],
     },
     {
-      text: 'Writing',
+      text: "Writing",
       collapsed: false,
       items: [
-        { text: 'Markdown', link: '/guide/markdown' },
-        { text: 'Asset Handling', link: '/guide/asset-handling' },
-        { text: 'Frontmatter', link: '/guide/frontmatter' },
-        { text: 'Using Vue in Markdown', link: '/guide/using-vue' },
-        { text: 'API Reference', link: '/guide/api' }
-      ]
+        { text: "Markdown", link: "/guide/markdown" },
+        { text: "Asset Handling", link: "/guide/asset-handling" },
+        { text: "Frontmatter", link: "/guide/frontmatter" },
+        { text: "Using Vue in Markdown", link: "/guide/using-vue" },
+        { text: "API Reference", link: "/guide/api" },
+      ],
     },
     {
-      text: 'Theme',
+      text: "Theme",
       collapsed: false,
       items: [
-        { text: 'Introduction', link: '/guide/theme-introduction' },
-        { text: 'Nav', link: '/guide/theme-nav' },
-        { text: 'Sidebar', link: '/guide/theme-sidebar' },
-        { text: 'Prev Next Link', link: '/guide/theme-prev-next-link' },
-        { text: 'Edit Link', link: '/guide/theme-edit-link' },
-        { text: 'Last Updated', link: '/guide/theme-last-updated' },
-        { text: 'Layout', link: '/guide/theme-layout' },
-        { text: 'Home Page', link: '/guide/theme-home-page' },
-        { text: 'Team Page', link: '/guide/theme-team-page' },
-        { text: 'Badge', link: '/guide/theme-badge' },
-        { text: 'Footer', link: '/guide/theme-footer' },
-        { text: 'Search', link: '/guide/theme-search' },
-        { text: 'Carbon Ads', link: '/guide/theme-carbon-ads' }
-      ]
+        { text: "Introduction", link: "/guide/theme-introduction" },
+        { text: "Nav", link: "/guide/theme-nav" },
+        { text: "Sidebar", link: "/guide/theme-sidebar" },
+        { text: "Prev Next Link", link: "/guide/theme-prev-next-link" },
+        { text: "Edit Link", link: "/guide/theme-edit-link" },
+        { text: "Last Updated", link: "/guide/theme-last-updated" },
+        { text: "Layout", link: "/guide/theme-layout" },
+        { text: "Home Page", link: "/guide/theme-home-page" },
+        { text: "Team Page", link: "/guide/theme-team-page" },
+        { text: "Badge", link: "/guide/theme-badge" },
+        { text: "Footer", link: "/guide/theme-footer" },
+        { text: "Search", link: "/guide/theme-search" },
+        { text: "Carbon Ads", link: "/guide/theme-carbon-ads" },
+      ],
     },
     {
-      text: 'Migrations',
+      text: "Migrations",
       collapsed: false,
       items: [
         {
-          text: 'Migration from VuePress',
-          link: '/guide/migration-from-vuepress'
+          text: "Migration from VuePress",
+          link: "/guide/migration-from-vuepress",
         },
         {
-          text: 'Migration from VitePress 0.x',
-          link: '/guide/migration-from-vitepress-0'
-        }
-      ]
-    }
-  ]
+          text: "Migration from VitePress 0.x",
+          link: "/guide/migration-from-vitepress-0",
+        },
+      ],
+    },
+  ];
 }
 
 function sidebarConfig() {
   return [
     {
-      text: 'Config',
+      text: "Config",
       items: [
-        { text: 'Introduction', link: '/config/introduction' },
-        { text: 'App Configs', link: '/config/app-configs' },
-        { text: 'Theme Configs', link: '/config/theme-configs' },
-        { text: 'Frontmatter Configs', link: '/config/frontmatter-configs' }
-      ]
-    }
-  ]
+        { text: "Introduction", link: "/config/introduction" },
+        { text: "App Configs", link: "/config/app-configs" },
+        { text: "Theme Configs", link: "/config/theme-configs" },
+        { text: "Frontmatter Configs", link: "/config/frontmatter-configs" },
+      ],
+    },
+  ];
 }
