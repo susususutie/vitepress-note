@@ -23,6 +23,7 @@ export default defineConfig({
   themeConfig: {
     // prettier-ignore
     nav:  [
+      { text: "前端",      activeMatch: "/fed/",      link: "/fed/nvm" },
       { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/setup" },
       { text: "Rust",      activeMatch: "/rust/",      link: "/rust/setup-for-fed-coder" },
 
@@ -35,6 +36,15 @@ export default defineConfig({
     ],
 
     sidebar: {
+      "/fed/": [
+        {
+          text: "工具",
+          collapsed: false,
+          items: [
+            { text: "nvm", link: "/fed/nvm" },
+          ],
+        },
+      ],
       "/wsl/": [
         {
           text: "入门教程",
