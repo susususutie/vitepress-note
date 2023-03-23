@@ -24,6 +24,7 @@ export default defineConfig({
     // prettier-ignore
     nav:  [
       { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/setup" },
+      { text: "Rust",      activeMatch: "/rust/",      link: "/rust/setup-for-fed-coder" },
 
       // { text: "Guide",    activeMatch: "/guide/",    link: "/guide/what-is-vitepress" },
       // { text: "Configs",  activeMatch: "/config/",   link: "/config/introduction" },
@@ -36,11 +37,20 @@ export default defineConfig({
     sidebar: {
       "/wsl/": [
         {
-          text: "Introduction",
+          text: "入门教程",
           collapsed: false,
           items: [
             { text: "WSL setup", link: "/wsl/setup" },
             { text: "使用 WSL", link: "/wsl/wsl-in-fed" },
+          ],
+        },
+      ],
+      "/rust/": [
+        {
+          text: "入门教程",
+          collapsed: false,
+          items: [
+            { text: "写给前端开发者的 Rust 入门教程", link: "/rust/setup-for-fed-coder" },
           ],
         },
       ],
