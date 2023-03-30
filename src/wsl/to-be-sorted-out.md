@@ -2,9 +2,9 @@
 
 待整理的记录笔记
 
-**wsl.config**
+**wsl.conf**
 
-更改`wsl.config`后需要关闭 linux 子系统, 并等待至少 8s 待其完全关闭, 再重启才能生效.
+更改`wsl.conf`后需要关闭 linux 子系统, 并等待至少 8s 待其完全关闭, 再重启才能生效.
 
 也可以使用`wsl --shutdown`关闭所有linux子系统.
 
@@ -37,8 +37,18 @@ echo $PATH
 export PATH="$PATH:/mnt/c/Users/sutie/AppData/Local/Programs/Microsoft VS Code/bin"
 ```
 
+### zsh
+
+- 安装zsh: `apt install zsh`, 安装好之后通过`zsh --version` 检查是否安装成功
+- 设置为默认shell: 终端执行`chsh -s $(which zsh)`将zsh设置为默认shell, 重启后打印shell:`echo $SHELL`, 结果类似'/usr/bin/zsh'表示成功
+- 新建zsh配置文件: `touch ~/.zshrc`
+- 安装OnMyZsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+安装好后, `.zhsrc`会被写入配置数据, 更改其中的ZSH_THEME为'ZSH_THEME="agnoster"'以启用'agnoster'主题配色, 若部分符号显示异常,需要同时更改windows终端字体
+
 参考:
 
 [WSL官方文档](https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config)
-
+[install zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+[install ohmyzsh](https://ohmyz.sh/#install)
 
