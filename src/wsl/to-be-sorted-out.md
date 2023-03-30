@@ -31,7 +31,7 @@ echo $PATH
 ```
 更改$PATH有很多方法, 这里采用更改`~/.zshrc`方法实现, 前提是已经安装zsh
 
-在.zshrc中添加一行, 用于在.zshrc生效时自动往$PATH上追加新的变量, 注意下方的/mnt/c...路径是宿主windows上vscode的路径
+在.zshrc中添加一行, 用于在.zshrc生效时自动往$PATH上追加新的变量, 注意下方的/mnt/c...路径是宿主windows上vscode的路径, 具体可以查看windows的环境变量
 
 ```bash
 export PATH="$PATH:/mnt/c/Users/sutie/AppData/Local/Programs/Microsoft VS Code/bin"
