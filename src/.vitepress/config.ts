@@ -31,7 +31,8 @@ export default defineConfig({
     // prettier-ignore
     sidebar: {
       "/fed/": [
-        { text: "nvm",                            link: "/fed/nvm" }
+        { text: "nvm",                            link: "/fed/nvm" },
+        { text: "OffScreenCanvas",                link: "/fed/off-screen-canvas" }
       ],
       "/wsl/": [
         { text: "WSL setup",                      link: "/wsl/setup" },
