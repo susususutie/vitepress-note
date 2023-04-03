@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as i}from"./app.d7305532.js";const f=JSON.parse('{"title":"NLP","description":"","frontmatter":{},"headers":[],"relativePath":"ai/index.md","lastUpdated":1680506384000}'),r={name:"ai/index.md"},n=i("",15),o=[n];function l(d,p,s,h,c,u){return a(),t("div",null,o)}const g=e(r,[["render",l]]);export{f as __pageData,g as default};
