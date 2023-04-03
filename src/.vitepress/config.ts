@@ -20,29 +20,41 @@ export default defineConfig({
     },
   },
 
+  // 配置顺序与文件夹顺序一一对应
+  // 各文件夹下index.md为待整理的杂项
   themeConfig: {
     // prettier-ignore
     nav:  [
-      { text: "前端",     activeMatch: "/fed/",      link: "/fed/nvm" },
-      { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/setup" },
-      { text: "Rust",     activeMatch: "/rust/",     link: "/rust/setup-for-fed-coder" },
-      { text: "GitHub",   activeMatch: "/github/",   link: "/github/demo" },
+      { text: "AI",       activeMatch: "/ai/",       link: "/ai/" },
+      { text: "前端",     activeMatch: "/fed/",      link: "/fed/" },
+      { text: "GitHub",   activeMatch: "/github/",   link: "/github/" },
+      { text: "python",   activeMatch: "/python/",   link: "/python/" },
+      { text: "Rust",     activeMatch: "/rust/",     link: "/rust/" },
+      { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/" },
     ],
     // prettier-ignore
     sidebar: {
+      "/ai/": [
+        { text: "TODO",                           link: "/ai/" },
+      ],
       "/fed/": [
-        { text: "nvm",                            link: "/fed/nvm" },
+        { text: "TODO",                           link: "/fed/" },
         { text: "OffScreenCanvas",                link: "/fed/off-screen-canvas" }
       ],
-      "/wsl/": [
-        { text: "WSL setup",                      link: "/wsl/setup" },
-        { text: "使用 WSL",                       link: "/wsl/wsl-in-fed" },
+      "/github/": [
+        { text: "TODO",                           link: "/github/" },
+      ],
+      "/python/": [
+        { text: "TODO",                           link: "/python/" },
       ],
       "/rust/": [
+        { text: "TODO",                           link: "/rust/" },
         { text: "写给前端开发者的 Rust 入门教程", link: "/rust/setup-for-fed-coder" },
       ],
-      "/github/": [
-        { text: "(待整理)",                       link: "/github/demo" },
+      "/wsl/": [
+        { text: "TODO",                           link: "/wsl/" },
+        { text: "WSL setup",                      link: "/wsl/setup" },
+        { text: "在 Windows 中启用WSL",           link: "/wsl/wsl-in-fed" },
       ],
     },
 
@@ -79,78 +91,3 @@ export default defineConfig({
     },
   },
 });
-
-function sidebarGuide() {
-  return [
-    {
-      text: "Introduction",
-      collapsed: false,
-      items: [
-        { text: "What is VitePress?", link: "/guide/what-is-vitepress" },
-        { text: "Getting Started", link: "/guide/getting-started" },
-        { text: "Configuration", link: "/guide/configuration" },
-        { text: "Routing", link: "/guide/routing" },
-        { text: "Deploying", link: "/guide/deploying" },
-        { text: "Internationalization", link: "/guide/i18n" },
-      ],
-    },
-    {
-      text: "Writing",
-      collapsed: false,
-      items: [
-        { text: "Markdown", link: "/guide/markdown" },
-        { text: "Asset Handling", link: "/guide/asset-handling" },
-        { text: "Frontmatter", link: "/guide/frontmatter" },
-        { text: "Using Vue in Markdown", link: "/guide/using-vue" },
-        { text: "API Reference", link: "/guide/api" },
-      ],
-    },
-    {
-      text: "Theme",
-      collapsed: false,
-      items: [
-        { text: "Introduction", link: "/guide/theme-introduction" },
-        { text: "Nav", link: "/guide/theme-nav" },
-        { text: "Sidebar", link: "/guide/theme-sidebar" },
-        { text: "Prev Next Link", link: "/guide/theme-prev-next-link" },
-        { text: "Edit Link", link: "/guide/theme-edit-link" },
-        { text: "Last Updated", link: "/guide/theme-last-updated" },
-        { text: "Layout", link: "/guide/theme-layout" },
-        { text: "Home Page", link: "/guide/theme-home-page" },
-        { text: "Team Page", link: "/guide/theme-team-page" },
-        { text: "Badge", link: "/guide/theme-badge" },
-        { text: "Footer", link: "/guide/theme-footer" },
-        { text: "Search", link: "/guide/theme-search" },
-        { text: "Carbon Ads", link: "/guide/theme-carbon-ads" },
-      ],
-    },
-    {
-      text: "Migrations",
-      collapsed: false,
-      items: [
-        {
-          text: "Migration from VuePress",
-          link: "/guide/migration-from-vuepress",
-        },
-        {
-          text: "Migration from VitePress 0.x",
-          link: "/guide/migration-from-vitepress-0",
-        },
-      ],
-    },
-  ];
-}
-
-function sidebarConfig() {
-  return [
-    {
-      text: "Config",
-      items: [
-        { text: "Introduction", link: "/config/introduction" },
-        { text: "App Configs", link: "/config/app-configs" },
-        { text: "Theme Configs", link: "/config/theme-configs" },
-        { text: "Frontmatter Configs", link: "/config/frontmatter-configs" },
-      ],
-    },
-  ];
-}
