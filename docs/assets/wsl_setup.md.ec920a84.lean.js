@@ -1,0 +1,1 @@
+import{_ as e,o as a,c as t,a as r}from"./app.c0e16b01.js";const u=JSON.parse('{"title":"WSL(TODO)","description":"","frontmatter":{},"headers":[],"relativePath":"wsl/setup.md","lastUpdated":1677227335000}'),s={name:"wsl/setup.md"},d=r("",6),n=[d];function o(h,i,c,_,l,p){return a(),t("div",null,n)}const m=e(s,[["render",o]]);export{u as __pageData,m as default};
