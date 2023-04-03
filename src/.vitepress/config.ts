@@ -20,29 +20,41 @@ export default defineConfig({
     },
   },
 
+  // 配置顺序与文件夹顺序一一对应
+  // 各文件夹下index.md为待整理的杂项
   themeConfig: {
     // prettier-ignore
     nav:  [
-      { text: "前端",     activeMatch: "/fed/",      link: "/fed/nvm" },
-      { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/setup" },
-      { text: "Rust",     activeMatch: "/rust/",     link: "/rust/setup-for-fed-coder" },
-      { text: "GitHub",   activeMatch: "/github/",   link: "/github/demo" },
+      { text: "AI",       activeMatch: "/ai/",       link: "/ai/" },
+      { text: "前端",     activeMatch: "/fed/",      link: "/fed/" },
+      { text: "GitHub",   activeMatch: "/github/",   link: "/github/" },
+      { text: "python",   activeMatch: "/python/",   link: "/python/" },
+      { text: "Rust",     activeMatch: "/rust/",     link: "/rust/" },
+      { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/" },
     ],
     // prettier-ignore
     sidebar: {
+      "/ai/": [
+        { text: "TODO",                           link: "/ai/" },
+      ],
       "/fed/": [
-        { text: "nvm",                            link: "/fed/nvm" },
+        { text: "TODO",                           link: "/fed/" },
         { text: "OffScreenCanvas",                link: "/fed/off-screen-canvas" }
       ],
-      "/wsl/": [
-        { text: "WSL setup",                      link: "/wsl/setup" },
-        { text: "使用 WSL",                       link: "/wsl/wsl-in-fed" },
+      "/github/": [
+        { text: "TODO",                           link: "/github/" },
+      ],
+      "/python/": [
+        { text: "TODO",                           link: "/python/" },
       ],
       "/rust/": [
+        { text: "TODO",                           link: "/rust/" },
         { text: "写给前端开发者的 Rust 入门教程", link: "/rust/setup-for-fed-coder" },
       ],
-      "/github/": [
-        { text: "(待整理)",                       link: "/github/demo" },
+      "/wsl/": [
+        { text: "TODO",                           link: "/wsl/" },
+        { text: "WSL setup",                      link: "/wsl/setup" },
+        { text: "在 Windows 中启用WSL",           link: "/wsl/wsl-in-fed" },
       ],
     },
 
