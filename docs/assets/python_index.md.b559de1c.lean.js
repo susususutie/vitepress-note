@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t,a as h}from"./app.b8f1973a.js";const b=JSON.parse('{"title":"前端开发者的Python入门教程","description":"","frontmatter":{},"headers":[],"relativePath":"python/index.md","lastUpdated":1680506384000}'),r={name:"python/index.md"},d=h("",21),n=[d];function i(o,c,s,p,l,_){return t(),e("div",null,n)}const f=a(r,[["render",i]]);export{b as __pageData,f as default};
