@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as a,a as r}from"./app.d7305532.js";const p=JSON.parse('{"title":"GitHub Action 杂项","description":"","frontmatter":{},"headers":[],"relativePath":"github/index.md","lastUpdated":1680506384000}'),i={name:"github/index.md"},o=r("",3),s=[o];function n(c,h,l,u,d,g){return a(),e("div",null,s)}const f=t(i,[["render",n]]);export{p as __pageData,f as default};
