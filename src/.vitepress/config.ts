@@ -39,7 +39,8 @@ export default defineConfig({
       ],
       "/fed/": [
         { text: "TODO",                           link: "/fed/" },
-        { text: "OffScreenCanvas",                link: "/fed/off-screen-canvas" }
+        { text: "OffScreenCanvas",                link: "/fed/off-screen-canvas" },
+        { text: "安装多版本Chrome浏览器",         link: "/fed/install-multi-version-chrome" },
       ],
       "/github/": [
         { text: "TODO",                           link: "/github/" },
