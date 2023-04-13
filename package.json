@@ -5,9 +5,9 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "vitepress dev src",
-    "build": "vitepress build src",
-    "preview": "vitepress preview src"
+    "docs:dev": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:preview": "vitepress preview src"
   },
   "keywords": [],
   "author": "sutie",
@@ -15,8 +15,10 @@
   "devDependencies": {
     "flexsearch": "^0.7.31",
     "markdown-it": "^13.0.1",
-    "vitepress": "1.0.0-alpha.46",
-    "vitepress-plugin-search": "1.0.4-alpha.19",
-    "vue": "^3.2.47"
+    "vitepress": "1.0.0-alpha.65",
+    "vitepress-plugin-search": "1.0.4-alpha.19"
+  },
+  "dependencies": {
+    "vite": "^4.2.1"
   }
 }
