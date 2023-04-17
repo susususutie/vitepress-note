@@ -1,5 +1,63 @@
 import { defineConfig } from "vitepress";
 // import { version } from "../../package.json";
+import { open, opendir } from "node:fs/promises";
+import { exit } from "node:process";
+import { URL } from "node:url";
+
+let nav: { text: string; activeMatch: string; link: string }[] = [];
+let sidebar: Record<string, { text: string; link: string }[]> = {};
+
+/**
+ * 自动生成 nav 和 sidebar
+ */
+(async () => {
+  try {
+    const dir = await opendir(new URL("../", import.meta.url));
+    for await (const dirent of dir) {
+      const dirName = dirent.name;
+      // 1. dir
+      // 2. not .xx
+      if (
+        dirent.isDirectory() &&
+        !dirName.startsWith(".") &&
+        dirName !== "public"
+      ) {
+        nav.push({
+          text: dirName.toUpperCase(),
+          activeMatch: `/${dirName}/`,
+          link: `/${dirName}/`,
+        });
+
+        let sidebarArr: { text: string; link: string }[] = [];
+        const cDir = await opendir(new URL(`../${dirName}`, import.meta.url));
+        for await (const cDirName of cDir) {
+          if (cDirName.isFile() && cDirName.name.endsWith(".md")) {
+            const cname = cDirName.name.split(".md")[0];
+
+            const file = await open(
+              new URL(`../${dirName}/${cDirName.name}`, import.meta.url)
+            );
+            const contents = await file.readFile({ encoding: "utf8" });
+            const lines = contents.split(/\n+/);
+            const title = lines[0].split(/#\s+/)[1];
+
+            sidebarArr.push({
+              text: cname === "index" ? "TODO" : title,
+              link: cname === "index" ? `/${dirName}/` : `/${dirName}/${cname}`,
+            });
+            file.close();
+          }
+        }
+
+        sidebar[`/${dirName}/`] = sidebarArr;
+      }
+    }
+  } catch (err) {
+    console.error(err);
+    exit(1);
+  }
+  // exit(1);
+})();
 
 export default defineConfig({
   base: "/vitepress-note/",
@@ -20,44 +78,30 @@ export default defineConfig({
     },
   },
 
-  // 配置顺序与文件夹顺序一一对应
-  // 各文件夹下index.md为待整理的杂项
   themeConfig: {
-    // prettier-ignore
-    nav:  [
-      { text: "AI",       activeMatch: "/ai/",       link: "/ai/" },
-      { text: "前端",     activeMatch: "/fed/",      link: "/fed/" },
-      { text: "GitHub",   activeMatch: "/github/",   link: "/github/" },
-      { text: "python",   activeMatch: "/python/",   link: "/python/" },
-      { text: "Rust",     activeMatch: "/rust/",     link: "/rust/" },
-      { text: "WSL",      activeMatch: "/wsl/",      link: "/wsl/" },
-    ],
-    // prettier-ignore
-    sidebar: {
-      "/ai/": [
-        { text: "TODO",                           link: "/ai/" },
-      ],
-      "/fed/": [
-        { text: "TODO",                           link: "/fed/" },
-        { text: "OffScreenCanvas",                link: "/fed/off-screen-canvas" },
-        { text: "安装多版本Chrome浏览器",         link: "/fed/install-multi-version-chrome" },
-      ],
-      "/github/": [
-        { text: "TODO",                           link: "/github/" },
-      ],
-      "/python/": [
-        { text: "TODO",                           link: "/python/" },
-      ],
-      "/rust/": [
-        { text: "TODO",                           link: "/rust/" },
-        { text: "写给前端开发者的 Rust 入门教程", link: "/rust/setup-for-fed-coder" },
-      ],
-      "/wsl/": [
-        { text: "TODO",                           link: "/wsl/" },
-        { text: "WSL setup",                      link: "/wsl/setup" },
-        { text: "在 Windows 中启用WSL",           link: "/wsl/wsl-in-fed" },
-      ],
+    search: {
+      provider: "local",
+      options: {
+        translations: {
+          button: {
+            buttonText: "搜索文档",
+            buttonAriaLabel: "搜索文档",
+          },
+          modal: {
+            noResultsText: "无法找到相关结果",
+            resetButtonTitle: "清除查询条件",
+            footer: {
+              selectText: "选择",
+              navigateText: "切换",
+              closeText: "关闭搜索框",
+            },
+          },
+        },
+      },
     },
+
+    nav,
+    sidebar,
 
     socialLinks: [
       { icon: "github", link: "https://github.com/susususutie/vitepress-note" },
@@ -70,7 +114,6 @@ export default defineConfig({
     ],
     outlineTitle: "文档目录",
     outline: [2, 3],
-    outlineBadges: false, // 是否隐藏图标
 
     // 下列许多label只在窄屏下才会显示, 例如切换按钮收缩到下拉框时才会展示
     darkModeSwitchLabel: "切换主题",

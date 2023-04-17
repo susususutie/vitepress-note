@@ -13,12 +13,8 @@
   "author": "sutie",
   "license": "ISC",
   "devDependencies": {
-    "flexsearch": "^0.7.31",
+    "@types/node": "^18.15.11",
     "markdown-it": "^13.0.1",
-    "vitepress": "1.0.0-alpha.65",
-    "vitepress-plugin-search": "1.0.4-alpha.19"
-  },
-  "dependencies": {
-    "vite": "^4.2.1"
+    "vitepress": "1.0.0-alpha.71"
   }
 }
