@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 // import { version } from "../../package.json";
 import { open, opendir } from "node:fs/promises";
-import { exit } from "node:process";
+import { exit, env } from "node:process";
 import { URL } from "node:url";
 
 let nav: { text: string; activeMatch: string; link: string }[] = [];
@@ -9,6 +9,7 @@ let sidebar: Record<string, { text: string; link: string }[]> = {};
 
 /**
  * 自动生成 nav 和 sidebar
+ * 文件夹或md文件以'__DEV__'开头时, 仅在开发时展示, 不能有__DEV__index.md否则默认导航会找不到首页
  */
 (async () => {
   try {
@@ -22,6 +23,11 @@ let sidebar: Record<string, { text: string; link: string }[]> = {};
         !dirName.startsWith(".") &&
         dirName !== "public"
       ) {
+        // 部分还在进行中的文档只在开发时展示
+        if (env.NODE_ENV === "production" && dirName.startsWith("__DEV__")) {
+          continue;
+        }
+
         nav.push({
           text: dirName.toUpperCase(),
           activeMatch: `/${dirName}/`,
@@ -32,6 +38,13 @@ let sidebar: Record<string, { text: string; link: string }[]> = {};
         const cDir = await opendir(new URL(`../${dirName}`, import.meta.url));
         for await (const cDirName of cDir) {
           if (cDirName.isFile() && cDirName.name.endsWith(".md")) {
+            if (
+              env.NODE_ENV === "production" &&
+              cDirName.name.startsWith("__DEV__")
+            ) {
+              continue;
+            }
+
             const cname = cDirName.name.split(".md")[0];
 
             const file = await open(
@@ -42,7 +55,7 @@ let sidebar: Record<string, { text: string; link: string }[]> = {};
             const title = lines[0].split(/#\s+/)[1];
 
             sidebarArr.push({
-              text: cname === "index" ? "TODO" : title,
+              text: title,
               link: cname === "index" ? `/${dirName}/` : `/${dirName}/${cname}`,
             });
             file.close();
